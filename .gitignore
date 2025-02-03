@@ -1,1 +1,5 @@
 node_modules/
+vendor/
+assets/css/
+dist/
+package-lock.json
