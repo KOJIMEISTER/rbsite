@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    entry: "./public/assets/js/main.js",
+    entry: "./public/index.js",
     output: {
         filename: 'bundle.[contenthash].js', // Output bundle with cache busting
         path: path.resolve(__dirname, 'dist'),
@@ -31,13 +31,28 @@ module.exports = {
                 ],
             },
             {
-                test: /\.css$/i, // If you have regular CSS files
-                use: [
-                  isProduction
-                    ? MiniCssExtractPlugin.loader
-                    : 'style-loader',
-                  'css-loader',
-                ],
+              test: /\.html$/i,
+              loader: 'html-loader',
+              options: {
+                sources: {
+                  list: [
+                    // All default supported tags and attributes
+                    '...',
+                    {
+                      tag: 'img',
+                      attribute: 'data-src',
+                      type: 'src',
+                    },
+                  ],
+                },
+              },
+            },
+            {
+              test: /\.(png|jpe?g|gif|svg|jfif)$/i, // Match image file extensions
+              type: 'asset/resource', // Emits a separate file and exports the URL
+              generator: {
+                filename: 'assets/images/[name][hash][ext][query]', // Output folder and naming
+              },
             }
         ]
     },

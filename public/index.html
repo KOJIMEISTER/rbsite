@@ -8,94 +8,147 @@
   </head>
 
   <body>
-    <div class="video-wrapper">
-      <div class="video-wrapper__player">
-        <button class="video-wrapper__button">
-          <span class="video-wrapper__button-text">Смотреть видео</span>
-        </button>
+    <div class="video">
+      <div class="video__player">
+        <img
+          src="./assets/images/fd2d6ded0487d67926d3153ca9a38c95.png"
+          alt="Food preview"
+        />
       </div>
+      <button class="video__button">
+        <span class="video__button--text">Смотреть видео</span>
+        <img src="./assets/images/start.svg" />
+      </button>
     </div>
 
-    <div class="products-wrapper">
-      <div class="products-wrapper__container">
-        <div class="products-wrapper__product large-item">
-          <img src="" />
-          <span class="products-wrapper__text">Горох в стручках, 1 кг</span>
-          <svg class="products-wrapper__like"></svg>
-          <svg class="products-wrapper__visible"></svg>
-          <div class="products-wrapper__order-container">
-            <span class="products-wrapper__price">570 Р</span>
-            <button class="products-wrapper__button">Оставить заявку</button>
+    <div class="products">
+      <div class="products__container">
+        <div class="products__item products__item--large">
+          <div class="products__preview">
+            <img
+              class="products__image products__image--offset"
+              src="./assets/images/5ea0bbf5c853d150caa7a45e6e10d7f1.png"
+              alt="Pease image"
+            />
           </div>
-          <div class="products-wrapper__info-container">
-            <div class="products-wrapper__discount">- 29%</div>
-            <div class="products-wrapper__daily">Товар дня</div>
+          <div class="products__shadow"></div>
+          <div class="products__shadow products__shadow--lower"></div>
+          <span class="products__title">Горох в стручках, 1 кг</span>
+          <div class="products__actions">
+            <img src="./assets/images/like.svg" />
+            <img src="./assets/images/eye.svg" />
           </div>
-        </div>
-
-        <div class="products-wrapper__product medium-item1">
-          <img src="" />
-          <span class="products-wrapper__text">Голубика лесная, 200 г</span>
-          <svg class="products-wrapper__like"></svg>
-          <svg class="products-wrapper__visible"></svg>
-          <div class="products-wrapper__order-container">
-            <span class="products-wrapper__price">140 Р</span>
-            <button class="products-wrapper__button">Оставить заявку</button>
+          <div class="products__order">
+            <span class="products__price">570 ₽</span>
+            <button class="products__button">Оставить заявку</button>
           </div>
-          <div class="products-wrapper__info-container">
-            <div class="products-wrapper__discount">- 31%</div>
-            <div class="products-wrapper__sale">Распродажа</div>
+          <div class="products__tags">
+            <div class="products__tag products__tag--discount">- 29%</div>
+            <div class="products__tag products__tag--daily">Товар дня</div>
           </div>
         </div>
 
-        <div class="products-wrapper__product medium-item2">
-          <img src="" />
-          <span class="products-wrapper__text">Морковь мытая, 1 кг</span>
-          <svg class="products-wrapper__like"></svg>
-          <svg class="products-wrapper__visible"></svg>
-          <div class="products-wrapper__order-container">
-            <span class="products-wrapper__price">140 Р</span>
-            <button class="products-wrapper__button">Оставить заявку</button>
+        <div class="products__item medium-item1">
+          <div class="products__preview">
+            <img
+              class="products__image"
+              src="./assets/images/fd218debd66db27ffe74cb4afe62f7e0.png"
+              alt="Blueberry image"
+            />
           </div>
-          <div class="products-wrapper__info-container">
-            <div class="products-wrapper__hit">Хит</div>
+          <div class="products__shadow"></div>
+          <div class="products__shadow products__shadow--lower"></div>
+          <span class="products__title">Голубика лесная, 200 г</span>
+          <div class="products__actions">
+            <img src="./assets/images/like.svg" />
+            <img src="./assets/images/eye.svg" />
+          </div>
+          <div class="products__order">
+            <span class="products__price">140 ₽</span>
+            <button class="products__button">Оставить заявку</button>
+          </div>
+          <div class="products__tags">
+            <div class="products__tag products__tag--discount-pink">- 31%</div>
+            <div class="products__tag products__tag--sale products__tag--sale">
+              Распродажа
+            </div>
           </div>
         </div>
 
-        <div class="products-wrapper__product small-item1">
-          <img src="" />
-          <svg class="products-wrapper__like"></svg>
-          <svg class="products-wrapper__visible"></svg>
-          <div class="products-wrapper__info-container uptag">
-            <div class="products-wrapper__daily">Товар дня</div>
-            <div class="products-wrapper__discount">- 29%</div>
+        <div class="products__item medium-item2">
+          <div class="products__preview">
+            <img
+              class="products__image"
+              src="./assets/images/e34f58892f1430e40ff41d37dff049cf.png"
+              alt="Carrot image"
+            />
           </div>
-          <span class="products-wrapper__text products-wrapper__text--centered"
-            >Попкорн солёный, для СВЧ-печи, 120 г</span
+          <div class="products__shadow"></div>
+          <div class="products__shadow products__shadow--lower"></div>
+          <span class="products__title">Морковь мытая, 1 кг</span>
+          <div class="products__actions">
+            <img src="./assets/images/like.svg" />
+            <img src="./assets/images/eye.svg" />
+          </div>
+          <div class="products__order">
+            <span class="products__price">140 ₽</span>
+            <button class="products__button">Оставить заявку</button>
+          </div>
+          <div class="products__tags">
+            <div class="products__tag products__tag--hit">Хит</div>
+          </div>
+        </div>
+
+        <div class="products__item products__item--small-item1">
+          <div class="products__preview products__preview--small">
+            <img
+              class="products__image products__image"
+              src="./assets/images/40f14d16fabb55039e23bb16e23a22b6.png"
+              alt="Popcorn image"
+            />
+          </div>
+          <div class="products__actions">
+            <img src="./assets/images/like.svg" />
+            <img src="./assets/images/eye.svg" />
+          </div>
+          <div class="products__tags products__tags--up">
+            <div class="products__tag products__tag--daily">Товар дня</div>
+            <div class="products__tag products__tag--discount">- 29%</div>
+          </div>
+          <span class="products__title products__title--small"
+            >Попкорн солёный,&nbsp; для СВЧ-печи, 120 г</span
           >
-          <div
-            class="products-wrapper__order-container products-wrapper__order-container--vertical"
-          >
-            <span class="products-wrapper__price">160 Р</span>
-            <button class="products-wrapper__button">Оставить заявку</button>
+          <div class="products__order products__order--center">
+            <span class="products__price products__price--graphit">160 ₽</span>
+            <button class="products__button products__button--center">
+              Оставить заявку
+            </button>
           </div>
         </div>
 
-        <div class="products-wrapper__product small-item2">
-          <img src="" />
-          <svg class="products-wrapper__like"></svg>
-          <svg class="products-wrapper__visible"></svg>
-          <div class="products-wrapper__info-container uptag">
-            <div class="products-wrapper__hit">Хит</div>
+        <div class="products__item products__item--small-item2">
+          <div class="products__preview products__preview--small">
+            <img
+              class="products__image"
+              src="./assets/images/211e54bc8f0e4cf99d41325a34bcf61d.png"
+              alt="Raspberry popsicle"
+            />
           </div>
-          <span class="products-wrapper__text products-wrapper__text--centered"
+          <div class="products__actions">
+            <img src="./assets/images/like.svg" />
+            <img src="./assets/images/eye.svg" />
+          </div>
+          <div class="products__tags products__tags--up">
+            <div class="products__tag products__tag--hit">Хит</div>
+          </div>
+          <span class="products__title products__title--small"
             >Эскимо с малиной, 150 г</span
           >
-          <div
-            class="products-wrapper__order-container products-wrapper__order-container--vertical"
-          >
-            <span class="products-wrapper__price">190 Р</span>
-            <button class="products-wrapper__button">Оставить заявку</button>
+          <div class="products__order products__order--center">
+            <span class="products__price products__price--graphit">190 ₽</span>
+            <button class="products__button products__button--center">
+              Оставить заявку
+            </button>
           </div>
         </div>
       </div>
