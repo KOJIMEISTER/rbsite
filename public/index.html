@@ -4,18 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TSite</title>
+    <title>Food Site</title>
   </head>
 
   <body>
     <div class="video">
-      <div class="video__player">
+      <div class="video__player" id="videoPlayer">
+        <iframe
+          src="https://www.youtube.com/embed/MpqnxV8v2s8?si=nCwV-l8OnYH9znJP&amp;controls=0"
+          frameborder="0"
+          allow="autoplay; encrypted-media;"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="video__preview" id="videoPreview">
         <img
           src="./assets/images/fd2d6ded0487d67926d3153ca9a38c95.png"
           alt="Food preview"
         />
       </div>
-      <button class="video__button">
+
+      <button class="video__button" id="videoButton">
         <span class="video__button--text">Смотреть видео</span>
         <img src="./assets/images/start.svg" />
       </button>
