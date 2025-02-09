@@ -54,6 +54,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const nameInput = form.elements["name"];
   const phoneInput = form.elements["phone"];
   const confirmInput = form.elements["confirm"];
+  const sendButton = document.getElementById("sendButton");
+
+  function refreshSendButton(error) {
+    if (!error.classList.contains("form__error--hidden")) {
+      setSendButtonStatus("enabled");
+    }
+  }
+
+  nameInput.addEventListener("input", () => {
+    refreshSendButton(nameError);
+  });
+
+  phoneInput.addEventListener("input", () => {
+    refreshSendButton(phoneError);
+  });
+
+  confirmInput.addEventListener("input", () => {
+    refreshSendButton(confirmError);
+  });
+
+  function setSendButtonStatus(status) {
+    if (status === "disabled") {
+      if (!sendButton.classList.contains("form__button--disabled")) {
+        sendButton.classList.add("form__button--disabled");
+      }
+    } else if (status === "enabled") {
+      if (sendButton.classList.contains("form__button--disabled")) {
+        sendButton.classList.remove("form__button--disabled");
+      }
+    }
+  }
 
   function clearError(input, element) {
     if (input.classList.contains("form__input--error")) {
@@ -106,8 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     if (validateForm()) {
+      setSendButtonStatus("enabled");
       clearErrors();
       closeForm();
+    } else {
+      setSendButtonStatus("disabled");
     }
   });
 });
