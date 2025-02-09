@@ -4,7 +4,26 @@ import "./index.html";
 
 function validatePhone(phone) {
   const phoneRegex = /^\+?[\d\s\-()]{7,20}$/;
-  return phoneRegex.test(phone.trim());
+  return phoneRegex.test(phone);
+}
+
+function sendForm(form) {
+  const formData = new FormData(form);
+  fetch("submit", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        console.log("Submit success: ", data.message);
+      } else {
+        console.log("Submit errors: ", data.errors);
+      }
+    })
+    .catch((error) => {
+      console.error("Error: ", error);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -140,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setSendButtonStatus("enabled");
       clearErrors();
       closeForm();
+      sendForm(form);
     } else {
       setSendButtonStatus("disabled");
     }

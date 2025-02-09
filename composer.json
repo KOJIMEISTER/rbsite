@@ -1,0 +1,18 @@
+{
+    "name": "user/rbsite",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "User\\Rbsite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Koji Meister",
+            "email": "kojimeister@yandex.ru"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
