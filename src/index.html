@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <div class="products__item medium-item1">
+        <div class="products__item products__item--medium-item1">
           <div class="products__preview">
             <img
               class="products__image"
@@ -85,7 +85,7 @@
           </div>
         </div>
 
-        <div class="products__item medium-item2">
+        <div class="products__item products__item--medium-item2">
           <div class="products__preview">
             <img
               class="products__image"
@@ -109,59 +109,80 @@
           </div>
         </div>
 
-        <div class="products__item products__item--small-item1">
-          <div class="products__preview products__preview--small">
-            <img
-              class="products__image products__image"
-              src="./assets/images/40f14d16fabb55039e23bb16e23a22b6.png"
-              alt="Popcorn image"
-            />
-          </div>
-          <div class="products__actions">
-            <img src="./assets/images/like.svg" />
-            <img src="./assets/images/eye.svg" />
-          </div>
-          <div class="products__tags products__tags--up">
-            <div class="products__tag products__tag--daily">Товар дня</div>
-            <div class="products__tag products__tag--discount">- 29%</div>
-          </div>
-          <span class="products__title products__title--small"
-            >Попкорн солёный,&nbsp; для СВЧ-печи, 120 г</span
-          >
-          <div class="products__order products__order--center">
-            <span class="products__price products__price--graphit">160 ₽</span>
-            <button class="products__button products__button--center">
-              Оставить заявку
-            </button>
-          </div>
-        </div>
+        <div class="wrapper">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="products__item products__item--small-item1">
+                  <div class="products__preview products__preview--small">
+                    <img
+                      class="products__image products__image"
+                      src="./assets/images/40f14d16fabb55039e23bb16e23a22b6.png"
+                      alt="Popcorn image"
+                    />
+                  </div>
+                  <div class="products__actions">
+                    <img src="./assets/images/like.svg" />
+                    <img src="./assets/images/eye.svg" />
+                  </div>
+                  <div class="products__tags products__tags--up">
+                    <div class="products__tag products__tag--daily">
+                      Товар дня
+                    </div>
+                    <div class="products__tag products__tag--discount">
+                      - 29%
+                    </div>
+                  </div>
+                  <span class="products__title products__title--small"
+                    >Попкорн солёный,&nbsp; для СВЧ-печи, 120 г</span
+                  >
+                  <div class="products__order products__order--center">
+                    <span class="products__price products__price--graphit"
+                      >160 ₽</span
+                    >
+                    <button class="products__button products__button--center">
+                      Оставить заявку
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-        <div class="products__item products__item--small-item2">
-          <div class="products__preview products__preview--small">
-            <img
-              class="products__image"
-              src="./assets/images/211e54bc8f0e4cf99d41325a34bcf61d.png"
-              alt="Raspberry popsicle"
-            />
-          </div>
-          <div class="products__actions">
-            <img src="./assets/images/like.svg" />
-            <img src="./assets/images/eye.svg" />
-          </div>
-          <div class="products__tags products__tags--up">
-            <div class="products__tag products__tag--hit">Хит</div>
-          </div>
-          <span class="products__title products__title--small"
-            >Эскимо с малиной, 150 г</span
-          >
-          <div class="products__order products__order--center">
-            <span class="products__price products__price--graphit">190 ₽</span>
-            <button class="products__button products__button--center">
-              Оставить заявку
-            </button>
+              <div class="swiper-slide">
+                <div class="products__item products__item--small-item2">
+                  <div class="products__preview products__preview--small">
+                    <img
+                      class="products__image"
+                      src="./assets/images/211e54bc8f0e4cf99d41325a34bcf61d.png"
+                      alt="Raspberry popsicle"
+                    />
+                  </div>
+                  <div class="products__actions">
+                    <img src="./assets/images/like.svg" />
+                    <img src="./assets/images/eye.svg" />
+                  </div>
+                  <div class="products__tags products__tags--up">
+                    <div class="products__tag products__tag--hit">Хит</div>
+                  </div>
+                  <span class="products__title products__title--small"
+                    >Эскимо с малиной, 150 г</span
+                  >
+                  <div class="products__order products__order--center">
+                    <span class="products__price products__price--graphit"
+                      >190 ₽</span
+                    >
+                    <button class="products__button products__button--center">
+                      Оставить заявку
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
 
     <div class="overlay overlay--hidden" id="overlay">

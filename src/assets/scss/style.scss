@@ -1,8 +1,7 @@
 @use "variables";
 
-$desktop: 1440px;
-$tablet: 1024px;
-$mobile: 360px;
+$desktop: 1439px;
+$tablet: 1023px;
 $primary: #18c576;
 $primary-darken: #139159;
 $background: #eeeeee;
@@ -32,11 +31,8 @@ body {
 
 .video {
   position: relative;
-  width: 100%;
-  max-width: 1440px;
-  min-width: 300px;
+  width: 1440px;
   height: 655px;
-  aspect-ratio: 1440 / 655;
   background-color: $white;
   margin: auto;
   display: flex;
@@ -143,7 +139,6 @@ body {
   max-width: 1440px;
   min-width: 300px;
   height: 456px;
-  aspect-ratio: 1440 / 456;
   background-color: $background;
   margin: auto;
   display: flex;
@@ -177,18 +172,26 @@ body {
       grid-row: 1 / span 2;
     }
 
+    &--medium-item1 {
+      grid-column: 3 / span 2;
+      grid-row: 1;
+    }
+
+    &--medium-item2 {
+      grid-column: 3 / span 2;
+      grid-row: 2;
+    }
+
     &--small-item1 {
       justify-content: flex-start;
       flex-direction: column;
-      grid-column: 5;
-      grid-row: 1 / span 2;
+      align-items: start;
     }
 
     &--small-item2 {
       justify-content: flex-start;
       flex-direction: column;
-      grid-column: 6;
-      grid-row: 1 / span 2;
+      align-items: start;
     }
   }
 
@@ -254,8 +257,8 @@ body {
     width: 19px;
     height: 42px;
     position: absolute;
-    top: 8px;
-    right: 9px;
+    top: 12px;
+    right: 12px;
     display: grid;
     gap: 4px;
     grid-template-columns: repeat(1, 1fr);
@@ -278,9 +281,8 @@ body {
     grid-template-rows: repeat(1, 1fr);
 
     &--center {
-      width: 160px;
+      width: auto;
       height: 60px;
-      aspect-ratio: 160 / 60;
       left: 12px;
       gap: 0px;
       grid-template-columns: repeat(1, 1fr);
@@ -324,10 +326,10 @@ body {
     position: absolute;
     bottom: 12px;
     left: 12px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-content: end;
     gap: 4px;
-    grid-template-columns: repeat(1, 1fr);
 
     &--up {
       bottom: auto;
@@ -551,79 +553,160 @@ body {
   }
 }
 
-.medium-item1 {
-  grid-column: 3 / span 2;
-  grid-row: 1;
-}
+.swiper {
+  width: 360px;
+  height: 410px;
 
-.medium-item2 {
-  grid-column: 3 / span 2;
-  grid-row: 2;
-}
-
-@media (max-width: 1439px) {
-  .products-container {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-  }
-
-  .medium-item1 {
-    grid-column: 1 / span 2;
-    grid-row: 3;
-  }
-
-  .medium-item2 {
-    grid-column: 3 / span 2;
-    grid-row: 3;
-  }
-
-  .small-item1 {
-    grid-column: 3;
-    grid-row: 1 / span 2;
-  }
-
-  .small-item2 {
-    grid-column: 4;
-    grid-row: 1 / span 2;
+  &-pagination {
+    position: absolute;
+    left: 166px;
+    right: 166px;
+    bottom: 48px;
+    width: 28px;
+    height: 8px;
   }
 }
 
-@media (max-width: 767px) {
-  .products-wrapper__container {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+.wrapper {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
 
-    &--large {
-      grid-column: 1;
-      grid-row: 1 / span 2;
+@media (max-width: $desktop) {
+  .video {
+    width: 1024px;
+    height: 629px;
+  }
+  .products {
+    width: 1024px;
+    height: 629px;
+
+    &__container {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    &__item {
+      &--medium-item1 {
+        grid-column: 1 / span 2;
+        grid-row: 3;
+      }
+
+      &--medium-item2 {
+        grid-column: 3 / span 2;
+        grid-row: 3;
+      }
     }
   }
-
-  .medium-item1 {
-    grid-column: 1;
-    grid-row: 3;
+  .wrapper {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 2;
   }
+}
 
-  .medium-item2 {
-    grid-column: 1;
-    grid-row: 4;
+@media (max-width: $tablet) {
+  .video {
+    width: 360px;
+    height: 300px;
+
+    &__preview {
+      top: 48px;
+      right: 16px;
+      bottom: 48px;
+      left: 16px;
+    }
+
+    &__player {
+      top: 48px;
+      right: 16px;
+      bottom: 48px;
+      left: 16px;
+    }
   }
+  .products {
+    width: 360px;
+    height: 1264px;
 
-  .small-item1 {
-    grid-column: 1;
-    grid-row: 5 / span 2;
-  }
+    &__container {
+      top: 48px;
+      right: 16px;
+      bottom: 16px;
+      left: 16px;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      display: flex;
+      flex-direction: column;
+    }
 
-  .small-item2 {
-    grid-column: 1;
-    grid-row: 5 / span 2;
-  }
+    &__order {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      justify-items: center;
+      align-items: start;
+      right: auto;
+      width: auto;
+      height: 60px;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      gap: 0px;
+    }
 
-  .products__order {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    color: $black;
-    justify-items: center;
-    right: auto;
+    &__button {
+      width: 100%;
+    }
+
+    &__item {
+      &--large {
+        width: 328px;
+        height: 328px;
+        grid-column: 1;
+      }
+
+      &--medium-item1 {
+        width: 328px;
+        height: 175px;
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      &--medium-item2 {
+        width: 328px;
+        height: 175px;
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      &--small-item1 {
+        width: 230px;
+        height: 410px;
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      &--small-item2 {
+        width: 230px;
+        height: 410px;
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+
+    &__tags {
+      left: 12px;
+      top: 43px;
+      bottom: auto;
+      flex-direction: row;
+
+      &--up {
+        left: 12px;
+        top: 12px;
+        flex-direction: column;
+      }
+    }
   }
 }

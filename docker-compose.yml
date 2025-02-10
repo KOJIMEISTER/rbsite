@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    container_name: apache_php
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./src:/var/www/html
+      - ./apache/apache.conf:/etc/apache2/sites-available/000-default.conf
+      - ./certs:/etc/letsencrypt
+    depends_on:
+      - certbot
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certs:/etc/letsencrypt
+      - ./src:/var/www/html
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do sleep 12h & wait $${!}; certbot renew --webroot -w /var/www/html; done;'"

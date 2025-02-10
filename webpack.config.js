@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
-  entry: "./public/index.js",
+  entry: "./src/index.js",
   output: {
     filename: "bundle.[contenthash].js", // Output bundle with cache busting
     path: path.resolve(__dirname, "./public/dist"),
@@ -17,9 +17,6 @@ module.exports = {
     static: "./public/dist",
     hot: true,
     open: true, // Automatically open the browser
-    proxy: {
-      "/public": "http://localhost:8080",
-    },
   },
   module: {
     rules: [
@@ -61,7 +58,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html", // Template HTML file
+      template: "./src/index.html", // Template HTML file
       filename: "index.html",
     }),
     // Only add MiniCssExtractPlugin in production

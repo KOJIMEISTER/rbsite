@@ -1,6 +1,7 @@
 import "./assets/scss/_variables.scss";
 import "./assets/scss/style.scss";
 import "./index.html";
+import "./swiper.js";
 
 function validatePhone(phone) {
   const phoneRegex = /^\+?[\d\s\-()]{7,20}$/;
