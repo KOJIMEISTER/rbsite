@@ -17,7 +17,7 @@ if (empty($name) or !preg_match("/^[A-Za-z\s]+$/", $name)) {
     $errors['name'] = 'Name is invalid.';
 }
 
-if (empty($phone) or !preg_match("/^\+?[\d\s\-()]{7,20}$/", $phone)) {
+if (empty($phone) or !preg_match("/^\+?[\d\s\-()]{16}$/", $phone)) {
     $errors['phone'] = 'Phone is invalid.';
 }
 

@@ -1,4 +1,4 @@
-@use "variables";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 $desktop: 1439px;
 $tablet: 1023px;
@@ -111,7 +111,7 @@ body {
     border: none;
     cursor: pointer;
     transform: skew(-15deg);
-    transition: background-color 0.3;
+    transition: background-color 0.5s ease-in-out;
     visibility: visible;
 
     img {
@@ -183,15 +183,21 @@ body {
     }
 
     &--small-item1 {
+      width: 184px;
       justify-content: flex-start;
       flex-direction: column;
       align-items: start;
     }
 
     &--small-item2 {
+      width: 184px;
       justify-content: flex-start;
       flex-direction: column;
       align-items: start;
+    }
+
+    &--zoomed {
+      zoom: 1.25;
     }
   }
 
@@ -265,6 +271,15 @@ body {
     grid-template-rows: repeat(2, 1fr);
     align-items: center;
     justify-items: center;
+
+    img {
+      cursor: pointer;
+      transition: filter 0.5s ease-in-out;
+
+      &:hover {
+        filter: drop-shadow(0px 5px 4px rgba($graphite, 1));
+      }
+    }
   }
 
   &__order {
@@ -301,7 +316,8 @@ body {
     font-weight: 700;
     border: none;
     border-radius: 5px;
-    transition: background-color;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
 
     &:hover {
       background-color: $primary-darken;
@@ -390,6 +406,7 @@ body {
   visibility: visible;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 
   &--hidden {
     display: none;
@@ -429,6 +446,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: zoom 0.5s ease-in-out;
+
+    &:hover {
+      zoom: 1.1;
+    }
   }
 
   &__input {
@@ -437,6 +460,7 @@ body {
     right: 12px;
     top: 63px;
     bottom: 126px;
+    cursor: pointer;
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
@@ -448,6 +472,7 @@ body {
     color: $graphite;
     font-size: 12px;
     font-weight: 500;
+    transition: filter 0.5s ease-in-out;
 
     &::placeholder {
       color: $graphite;
@@ -463,6 +488,10 @@ body {
     &--error {
       border-color: $error-border;
     }
+
+    &:hover {
+      filter: drop-shadow(0 5px 3px rgba($graphite, 0.1));
+    }
   }
 
   &__button {
@@ -477,9 +506,14 @@ body {
     border-radius: 5px;
     font-size: 12px;
     font-weight: 700;
+    transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
 
     &--disabled {
       opacity: 33%;
+    }
+
+    &:hover {
+      background-color: $primary-darken;
     }
   }
 
@@ -522,6 +556,11 @@ body {
   cursor: pointer;
   user-select: none;
 
+  &:hover {
+    transition: filter 0.5s ease-in-out;
+    filter: drop-shadow(0 5px 5px rgba($graphite, 0.5));
+  }
+
   input[type="checkbox"] {
     position: absolute;
     opacity: 0;
@@ -539,6 +578,7 @@ body {
     border-color: $checkbox-border;
     border-style: solid;
     background-color: $form;
+    transition: background-color 0.5s ease-in-out;
   }
 
   input:checked + &__checkmark {
@@ -555,22 +595,63 @@ body {
 
 .swiper {
   width: 360px;
-  height: 410px;
+  height: 430px;
+  overflow: hidden;
+
+  &-slide {
+    width: 230px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  &-slide-next,
+  &-slide-prev {
+    opacity: 0.5;
+    transition: opacity 0.5s ease-in-out !important;
+  }
+
+  &-slide-active {
+    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out !important;
+    &:hover {
+      filter: drop-shadow(0 0px 5px rgba($graphite, 0.5));
+    }
+  }
 
   &-pagination {
     position: absolute;
-    left: 166px;
-    right: 166px;
-    bottom: 48px;
-    width: 28px;
-    height: 8px;
+    bottom: 48px !important;
+  }
+
+  &-pagination-bullet {
+    width: 8px !important;
+    height: 8px !important;
+    background-color: $graphite !important;
+    transition: background-color 0.5s ease-in-out, filter 0.5s ease-in-out !important;
+    &:hover {
+      filter: drop-shadow(0 5px 5px rgba($graphite, 1));
+    }
   }
 }
 
-.wrapper {
+.wrapper-smalls {
   position: relative;
   display: flex;
+  flex-direction: row;
+  grid-column: 5 / span 2;
+  grid-row: 1 / span 2;
   gap: 20px;
+  visibility: visible;
+}
+
+.wrapper-slides {
+  position: absolute;
+  bottom: 80px;
+  left: 0px;
+  right: 0px;
+  height: 410px;
+  visibility: hidden;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -578,7 +659,7 @@ body {
 @media (max-width: $desktop) {
   .video {
     width: 1024px;
-    height: 629px;
+    height: 465px;
   }
   .products {
     width: 1024px;
@@ -602,7 +683,7 @@ body {
       }
     }
   }
-  .wrapper {
+  .wrapper-smalls {
     grid-column: 3 / span 2;
     grid-row: 1 / span 2;
   }
@@ -682,15 +763,15 @@ body {
       }
 
       &--small-item1 {
-        width: 230px;
-        height: 410px;
+        width: 184px;
+        height: 328px;
         grid-column: auto;
         grid-row: auto;
       }
 
       &--small-item2 {
-        width: 230px;
-        height: 410px;
+        width: 184px;
+        height: 328px;
         grid-column: auto;
         grid-row: auto;
       }
@@ -708,5 +789,11 @@ body {
         flex-direction: column;
       }
     }
+  }
+  .wrapper-smalls {
+    visibility: hidden;
+  }
+  .wrapper-slides {
+    visibility: visible;
   }
 }

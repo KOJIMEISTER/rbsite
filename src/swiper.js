@@ -10,8 +10,10 @@ let swiperInstance = null;
 
 function initSwiper() {
   swiperInstance = new Swiper(".swiper", {
-    direction: "horizontal",
-    slidesPerView: 1,
+    slidesPerView: 1.55,
+    spaceBetween: 20,
+    roundLengths: true,
+    centeredSlides: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
