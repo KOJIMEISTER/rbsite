@@ -1,21 +1,11 @@
 services:
   web:
     build: .
-    container_name: apache_php
+    container_name: rbsite_app
     ports:
       - "80:80"
-      - "443:443"
     volumes:
-      - ./src:/var/www/html
-      - ./apache/apache.conf:/etc/apache2/sites-available/000-default.conf
-      - ./certs:/etc/letsencrypt
-    depends_on:
-      - certbot
-
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    volumes:
-      - ./certs:/etc/letsencrypt
-      - ./src:/var/www/html
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do sleep 12h & wait $${!}; certbot renew --webroot -w /var/www/html; done;'"
+      - ./public:/var/www/html/rbsite/files
+      - ./vendor:/var/www/html/rbsite/vendor
+      - ./rbsite.conf:/etc/apache2/sites-available/000-default.conf
+    restart: unless-stopped

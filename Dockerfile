@@ -1,12 +1,13 @@
 FROM php:8.4-apache
 
-RUN a2enmod rewrite ssl headers
+RUN a2enmod rewrite
 
-COPY apache/apache.conf /etc/apache2/sites-available/000-default.conf
+WORKDIR /var/www/html
 
-COPY public/ /var/www/html/
+COPY ./rbsite.conf /etc/apache2/sites-available/000-default.conf
 
-EXPOSE 80 443
+COPY ./public /var/www/html/rbsite/files/
 
-CMD ["apache2-foreground"]
+COPY ./vendor /var/www/html/rbsite/
 
+RUN a2ensite 000-default.conf
